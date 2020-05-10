@@ -1,0 +1,4 @@
+#!/bin/bash
+
+ffserver &
+streamlink $@ -O | ffmpeg -i pipe:0 -c copy http://localhost:8090/feed1.ffm
